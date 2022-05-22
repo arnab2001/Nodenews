@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node News</title>
+    <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+<body>
+    <header class="header">
+       
+            <h1 class="header__logo">nodeNews</h1>
+            
+            <%- include('./partials/search.ejs') %>
+    </header>
+   
+   <div class="wrapper">
+       <div class="news">
+           <% if (articles != null) {%>
+            <%  articles.forEach(function(article,i){ %>
+            <div herf = '#' class="news__card">
+                <h2><%= article.title%></h2>
+                <p><%= article.author%></p>
+                <img src= <%= article.urlToImage%> width="500" height="500">
+                <p><%- article.description%></p>
+                <div class = "content">
+                    <%=article.content%> <a href=  >[Read More] </a>
+            </div>
+    
+        </div>
+
+    <% i++;}); %>
+    <% } %></div>
+
+</body>
+</html>
